@@ -8,18 +8,18 @@ const resolvers = {
       return User.find().populate('books');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username }).populate('s');
     },
-    thoughts: async (parent, { username }) => {
+    s: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Book.find(params).sort({ createdAt: -1 });
     },
-    book: async (parent, { thoughtId }) => {
-      return Book.findOne({ _id: thoughtId });
+    book: async (parent, { Id }) => {
+      return Book.findOne({ _id: Id });
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
+        return User.findOne({ _id: context.user._id }).populate('s');
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -52,12 +52,12 @@ const resolvers = {
       if (context.user) {
         const book = await Book.create({
           bookText,
-          thoughtAuthor: context.user.username,
+          Author: context.user.username,
         });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { thoughts: book._id } }
+          { $addToSet: { s: book._id } }
         );
 
         return book;
@@ -98,10 +98,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
+    removeComment: async (parent, { Id, commentId }, context) => {
       if (context.user) {
         return Book.findOneAndUpdate(
-          { _id: thoughtId },
+          { _id: Id },
           {
             $pull: {
               comments: {

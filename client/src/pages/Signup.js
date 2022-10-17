@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
-import { Form } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 import Auth from '../utils/auth';
 
 const Signup = () => {
@@ -42,7 +42,7 @@ const Signup = () => {
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+          <h4 className="card-header">Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -85,12 +85,13 @@ const Signup = () => {
                 />
                 </Form.Field>
                 
-                <div class="ui animated button" tabindex="0">
-  <div class="visible content">Submit</div>
-  <div class="hidden content">
-    <i class="right arrow icon"></i>
-  </div>
-</div>
+                <Button
+                  className="btn btn-block btn-primary"
+                  style={{ cursor: 'pointer' }}
+                  type="submit"
+                >
+                  Submit
+                </Button>
                 
               </Form>
             )}

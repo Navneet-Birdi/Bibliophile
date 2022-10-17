@@ -19,6 +19,15 @@
     width: 100px;
 
 }
+.text{
+    font-size: larger;
+    font-weight: bolder;
+}
+.nav-item{
+    margin-top: 20px;
+    font-size: large;
+    padding:4px;
+}
 
 /*styles for header.jsx*/
 .header-content{
@@ -45,8 +54,15 @@
 .card-header{
     text-align: center;
     text-transform: uppercase;
-
+   
 }
 .visible content{
     color:teal;
+}
+
+/*styles for search form*/
+.ui .input{
+    width:300px;
+    
+    margin-left: 800px;
 }

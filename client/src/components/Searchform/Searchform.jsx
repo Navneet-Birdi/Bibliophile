@@ -1,8 +1,33 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
+import { useGlobalContext } from '../../context';
 
 const Searchform = () => {
+  const {setSearchTerm, setResultTitle} = useGlobalContext();
+  const searchText = useRef('');
+  const navigate = useNavigate();
+
+  useEffect(() => searchText.current.focus(), []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let tempSearchTerm = searchText.current.value.trim();
+    if ((tempSearchTerm.replace(/[^\w\s]/gi,"")).length === 0){
+      setSearchTerm("Search...");
+      setResultTitle("Please Enter Something....");
+    } else{
+      setSearchTerm(searchText.current.value);
+    }
+    navigate("/book");
+  }
+
   return (
-    <div>Searchform</div>
+    <div class="ui loading search" onSubmit={handleSubmit}>
+  <div class="ui icon input">
+    <input class="prompt" type="text" placeholder='Search...' ref = {searchText} />
+    <i class="search icon" onClick={handleSubmit}></i>
+  </div>
+  <div class="results"></div>
+</div>
   )
 }
 

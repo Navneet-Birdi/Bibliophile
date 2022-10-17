@@ -7,19 +7,22 @@ const resolvers = {
     users: async () => {
       return User.find().populate('books');
     },
+    // returns current reading books
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username }).populate('books');
     },
-    thoughts: async (parent, { username }) => {
+    books: async (parent, { username }) => {
+
+      //TODO: UPDATE BELOW
       const params = username ? { username } : {};
       return Book.find(params).sort({ createdAt: -1 });
     },
-    book: async (parent, { thoughtId }) => {
-      return Book.findOne({ _id: thoughtId });
+    book: async (parent, { Id }) => {
+      return Book.findOne({ _id: Id });
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
+        return User.findOne({ _id: context.user._id }).populate('s');
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -48,21 +51,27 @@ const resolvers = {
 
       return { token, user };
     },
-    addBook: async (parent, { bookText }, context) => {
+    addCurrentBook: async (parent, { bookId }, context) => {
       if (context.user) {
-        const book = await Book.create({
-          bookText,
-          thoughtAuthor: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
+        const user = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { thoughts: book._id } }
+          { $addToSet: { books: bookId } }
         );
-
-        return book;
+        return user;
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    addBook: async (parent, { authors, title, image, isbn, description }, context) => {
+
+        const book = await Book.create({
+          authors,
+          title,
+          image,
+          isbn,
+          description
+        });
+
+        return book;
     },
     addComment: async (parent, { bookId, commentText }, context) => {
       if (context.user) {
@@ -98,10 +107,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
+    removeComment: async (parent, { Id, commentId }, context) => {
       if (context.user) {
         return Book.findOneAndUpdate(
-          { _id: thoughtId },
+          { _id: Id },
           {
             $pull: {
               comments: {

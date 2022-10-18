@@ -15,15 +15,15 @@ const AppProvider = ({children}) => {
                 const data = await response.json();
                 console.log(data);
                 const {docs} = data;
-                console.log(docs);
+                //console.log(docs);
                 if (docs){
                     const newBooks = docs.slice(0,20).map(
                         (bookSingle) => {
-                            const {key, author_name, cover_i, edition_count, first_publish_year, title} = bookSingle;
+                            const {key, author_name, cover_id, edition_count, first_publish_year, title} = bookSingle;
                             return{
                                 id:key,
                                 author:author_name,
-                                cover_id:cover_i,
+                                cover_id:cover_id,
                                 edition_count:edition_count,
                                 first_publish_year:first_publish_year,
                                 title:title

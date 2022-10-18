@@ -1,0 +1,68 @@
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    width: 100px;
+
+}
+.text{
+    font-size: larger;
+    font-weight: bolder;
+}
+.nav-item{
+    margin-top: 20px;
+    font-size: large;
+    padding:4px;
+}
+
+/*styles for header.jsx*/
+.header-content{
+    height: 600px;
+}
+.header-title{
+    color:white;
+    text-align: center;
+    padding-top: 100px;
+    text-transform:uppercase;
+}
+.header-text{
+    color:white;
+    text-align:center;
+    font-size: 16px;
+}
+
+/*styles for login.js*/
+.card{
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.card-header{
+    text-align: center;
+    text-transform: uppercase;
+   
+}
+.visible content{
+    color:teal;
+}
+
+/*styles for search form*/
+.ui .input{
+    width:300px;
+    
+    margin-left: 800px;
+}

@@ -23,3 +23,18 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($bookId: ID!, $commentText: String!) {
+    addComment(bookId: $bookId, commentText: $commentText) {
+      _id
+      bookAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        createdAt
+      }
+    }
+  }
+`;

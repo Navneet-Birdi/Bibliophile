@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import { Button } from 'semantic-ui-react'
-import BookModal from '../Modal/BookModal';
+import BookModal from '../Modal.jsx/BookModal';
 
 
 const Book = (book) => {

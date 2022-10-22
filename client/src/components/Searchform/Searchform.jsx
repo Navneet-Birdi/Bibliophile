@@ -21,9 +21,17 @@ const Searchform = () => {
   }
 
   return (
-    <div class="ui loading search" onSubmit={handleSubmit}>
+//     <div class="ui loading search" onSubmit={handleSubmit}>
+//   <div class="ui icon input">
+//     <input class="prompt" type="text" placeholder='Search...' ref = {searchText} />
+//     <button onClick={handleSubmit}><i class="search icon" ></i></button>
+    
+//   </div>
+//   <div class="results"></div>
+// </div>
+<div class="ui fluid category search" onSubmit={handleSubmit}>
   <div class="ui icon input">
-    <input class="prompt" type="text" placeholder='Search...' ref = {searchText} />
+    <input class="prompt" type="text" placeholder="Search..." ref = {searchText} />
     <i class="search icon" onClick={handleSubmit}></i>
   </div>
   <div class="results"></div>

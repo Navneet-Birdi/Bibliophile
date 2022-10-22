@@ -13,10 +13,10 @@ const Booklist = () => {
         ...singleBook,
         //removing/works/ to get only id
         id: (singleBook.id).replace("/works/", ""),
-        cover_img: singleBook.cover_id ? `https://covers.openlibrary.org/b/${singleBook.cover_id}-S.jpg` : coverImg
+        cover_img: singleBook.cover_img ? singleBook.cover_img : coverImg
       }
   });
-  console.log(booksWithCovers);
+  //console.log({booksWithCovers});
 
   if (loading) return <Loading/>;
 

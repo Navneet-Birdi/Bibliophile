@@ -73,13 +73,13 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange} />
               </Form.Field>
-              
-              <div class="ui animated button" tabindex="0">
-  <div class="visible content">Submit</div>
+              <button type='submit' >Submit</button>
+              {/* <div class="ui animated button" tabindex="0">
+  
   <div class="hidden content">
     <i class="right arrow icon"></i>
   </div>
-</div>
+</div> */}
             </Form>
             
               

@@ -16,7 +16,7 @@ const Book = (book) => {
     </Link>
     <div className='book-item-info-item author'>
         <span className='author'>Author: </span>
-        <span>{book.author.join(",")}</span>
+        <span>{book.author?.join(",")}</span>
     </div>
     <div className='book-item-info-item edcount'>
         <span className='author'>Total Editions: </span>

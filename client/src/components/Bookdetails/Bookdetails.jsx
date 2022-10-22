@@ -4,7 +4,7 @@ import Loading from "../Loader/Loader";
 import coverImg from "../../images/cover_not_found.jpg";
 import {FaArrowLeft} from "react-icons/fa";
 import {useNavigate} from 'react-router-dom';
-import auth from '../../utils/auth';
+//import auth from '../../utils/auth';
 
 const URL = "https://www.googleapis.com/books/v1/volumes/";
 
@@ -48,7 +48,7 @@ if (loading) return <Loading/>;
   return (
     <section className='book-details'>
       <div className='container'>
-        <button type='button' onClick={() => navigate("/book")}>
+        <button type='button' class='arrow' onClick={() => navigate("/book")}>
           <FaArrowLeft size = {22} />
           <span className='back'> Go Back</span>
         </button>

@@ -32,7 +32,7 @@ const Searchform = () => {
 <div class="ui fluid category search" onSubmit={handleSubmit}>
   <div class="ui icon input">
     <input class="prompt" type="text" placeholder="Search..." ref = {searchText} />
-    <i class="search icon" onClick={handleSubmit}></i>
+    <button class="ui brown basic button" onClick={handleSubmit}> Search </button>
   </div>
   <div class="results"></div>
 </div>

@@ -24,6 +24,7 @@ export const ADD_USER = gql`
   }
 `;
 
+<<<<<<< HEAD
 export const ADD_COMMENT = gql`
   mutation addComment($bookId: ID!, $commentText: String!) {
     addComment(bookId: $bookId, commentText: $commentText) {
@@ -34,6 +35,15 @@ export const ADD_COMMENT = gql`
         _id
         commentText
         createdAt
+=======
+export const ADD_BOOK = gql`
+  mutation saveBookToUser($title: String!, $image: String, $isbn: String, $description: String, $authors: [String]) {
+    saveBookToUser(title: $title, image: $image, isbn: $isbn, description: $description, authors: [String]) {
+      token
+      user {
+        _id
+        username
+>>>>>>> origin/navneet
       }
     }
   }

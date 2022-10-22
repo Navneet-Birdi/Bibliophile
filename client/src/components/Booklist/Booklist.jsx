@@ -26,7 +26,7 @@ const Booklist = () => {
       <div className='section-title'>
         <h2>{resultTitle}</h2>
       </div>
-      <div className='booklist-content grid'>
+      <div className='booklist-content-grid'>
           {
             booksWithCovers.slice(0,30).map((item,index) => {
               return(

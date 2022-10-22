@@ -73,6 +73,23 @@ const resolvers = {
 
         return book;
     },
+    saveBookToUser: async (parent, { authors, title, image, isbn, description }, context) => {
+
+      const book = await Book.create({
+        authors,
+        title,
+        image,
+        isbn,
+        description
+      });
+
+      const user = await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $addToSet: { books: book } }
+      );
+
+      return book;
+  },
     addComment: async (parent, { bookId, commentText }, context) => {
       if (context.user) {
         return Book.findOneAndUpdate(

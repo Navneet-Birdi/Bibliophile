@@ -7,14 +7,17 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { AppProvider } from './context';
+import 'semantic-ui-css/semantic.min.css'
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+
+//import Footer from './components/Footer/Footer';
 import Bookdetails from './components/Bookdetails/Bookdetails';
 import Booklist from './components/Booklist/Booklist';
+
+import './App.css'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -42,11 +45,10 @@ const client = new ApolloClient({
 function App() {
   
   return (
-  
-    <ApolloProvider client={client}>
+    <AppProvider>
+      <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
+        
           <div className="container">
             <Routes>
               <Route 
@@ -72,10 +74,13 @@ function App() {
 
             </Routes>
           </div>
-          <Footer />
-        </div>
+      
+        
       </Router>
     </ApolloProvider>
+    </AppProvider>
+  
+    
   
   );
 }

@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-nav {
+    display: flex;
+    gap: 10px;
+    list-style: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-brand {
+    display: flex;
+    align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar-brand img {
+    width: 100px;
+
+}
+.text{
+    font-size: larger;
+    font-weight: bolder;
+}
+.nav-item{
+    margin-top: 20px;
+    font-size: large;
+    padding:4px;
 }
 
-.App-link {
-  color: #61dafb;
+/*styles for header.jsx*/
+.header-content{
+    height: 600px;
+    margin-bottom: 50px;
+}
+.header-title{
+    color:white;
+    text-align: center;
+    padding-top: 100px;
+    text-transform:uppercase;
+}
+.header-text{
+    color:white;
+    text-align:center;
+    font-size: 16px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.category {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*styles for login.js*/
+.card{
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.card-header{
+    text-align: center;
+    text-transform: uppercase;
+   
+}
+.visible content{
+    color:teal;
+}
+
+/*styles for search form*/
+.ui .input{
+    width:300px;
+    
+    /*margin-left: 800px;*/
+}
+.ui.brown.basic.button{
+    border-radius: 500rem;
+    margin-left: 10px;
+    border:transparent;
+}
+
+.book-item-img img{
+    width: 200px;
+}
+
+.input.prompt{
+    background-color: transparent;
+    justify-content: center;
+}
+/*Booklist styling*/
+.section-title{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.booklist-content-grid{
+margin-top: 50px;
+padding:5px;
+display:flex;
+flex-wrap: wrap;
+    gap: 25px;
+
+}
+.arrow{
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.book-details-img{
+    margin-left:30px;
+    margin-top: 30px;
+    width:200px;
+    height:200px;
+}
+.book-details-info{
+    margin-left:30px;
 }

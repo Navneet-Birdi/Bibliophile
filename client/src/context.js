@@ -1,6 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { useCallback } from 'react';
-const URL = "http://openlibrary.org/search.json?title=";
+const URL = "https://www.googleapis.com/books/v1/volumes?q=";
+
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
@@ -13,20 +14,23 @@ const AppProvider = ({children}) => {
             try{
                 const response = await fetch(`${URL}${searchTerm}`);
                 const data = await response.json();
-                console.log(data);
-                const {docs} = data;
-                //console.log(docs);
-                if (docs){
-                    const newBooks = docs.slice(0,20).map(
+                //console.log(data);
+                const {items} = data;
+                //console.log(items);
+                if (items){
+                    const newBooks = items.slice(0,20).map(
                         (bookSingle) => {
-                            const {key, author_name, cover_id, edition_count, first_publish_year, title} = bookSingle;
+                            const {id} = bookSingle;
+
+                            const author = bookSingle.volumeInfo.authors;
+                            const title = bookSingle.volumeInfo.title;
+                            const cover_img = bookSingle.volumeInfo.imageLinks?.thumbnail || ''
+
                             return{
-                                id:key,
-                                author:author_name,
-                                cover_id:cover_id,
-                                edition_count:edition_count,
-                                first_publish_year:first_publish_year,
-                                title:title
+                                id:id,
+                                author:author,
+                                title:title,
+                                cover_img
                             }
                         }
                     );

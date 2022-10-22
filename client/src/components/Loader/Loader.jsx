@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+//import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
 
-const Loader = () => {
+const Loaders = () => {
   return (
-    <div>Loader</div>
+  //   <Segment>
+  //   <Dimmer active>
+  //     <Loader />
+  //   </Dimmer>
+
+   
+  // </Segment>
+  
+  <div class="ui active centered inline loader"></div>
   )
 }
 
-export default Loader
+export default Loaders

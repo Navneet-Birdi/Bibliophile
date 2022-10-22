@@ -13,7 +13,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
-import Footer from './components/Footer/Footer';
+//import Footer from './components/Footer/Footer';
 import Bookdetails from './components/Bookdetails/Bookdetails';
 import Booklist from './components/Booklist/Booklist';
 
@@ -74,7 +74,7 @@ function App() {
 
             </Routes>
           </div>
-          <Footer />
+      
         
       </Router>
     </ApolloProvider>

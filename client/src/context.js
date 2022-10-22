@@ -25,12 +25,13 @@ const AppProvider = ({children}) => {
                             const author = bookSingle.volumeInfo.authors;
                             const title = bookSingle.volumeInfo.title;
                             const cover_img = bookSingle.volumeInfo.imageLinks?.thumbnail || ''
-
+                            const description = bookSingle.volumeInfo.description || '';
                             return{
                                 id:id,
                                 author:author,
                                 title:title,
-                                cover_img
+                                cover_img,
+                                description
                             }
                         }
                     );

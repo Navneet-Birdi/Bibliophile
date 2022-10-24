@@ -111,8 +111,6 @@ const resolvers = {
       if (context.user) {
         const book = await Book.findOneAndDelete({
           _id: bookId,
-          // TODO: UNCOMMENT / DELETE BELOW
-          // bookAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(

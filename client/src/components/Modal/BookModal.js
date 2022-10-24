@@ -17,9 +17,10 @@ function BookModal({
     const onBookSave =async () => {
         const {data } = await saveBook({variables: {
             title: bookName,
-            authors: 'string',
+            authors: [],
             image: coverImg,
             description: description,
+            isbn: '',
         }})
         if (data.saveBookToUser) {
             setSuccess(true)

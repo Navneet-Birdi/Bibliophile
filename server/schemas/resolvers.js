@@ -83,7 +83,7 @@ const resolvers = {
 
       const user = await User.findOneAndUpdate(
         { _id: context.user._id },
-        { $addToSet: { books: book } }
+        { $addToSet: { books: book._id } }
       );
 
       return book;
@@ -111,6 +111,8 @@ const resolvers = {
           _id: bookId,
         });
 
+        console.log('user', user);
+        
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { books: book._id } }

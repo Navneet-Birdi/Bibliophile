@@ -8,13 +8,13 @@ import BookModal from '../Modal/BookModal';
 const Book = (book) => {
     const [open, setOpen] = useState(false)
   return (
-    <div class="ui grid" className='book-item'>
-    <div class="four wide column" className='book-item-img'>
+    <div className= "ui grid book-item">
+    <div className="four wide column book-item-img">
         <Button basic onClick={() => setOpen(true)}>
         <img src = {book.cover_img} alt = "cover"/>
         </Button>
     </div>
-    <div classname="book-item-info title">
+    <div className="book-item-info title">
         <Link to = {`/book/${book.id}`} {...book}>
             <div className='book-item-info-item'>
                 <span>{book.title}</span>

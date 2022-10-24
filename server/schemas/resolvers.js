@@ -67,7 +67,6 @@ const resolvers = {
           authors,
           title,
           image,
-          isbn,
           description
         });
 
@@ -79,7 +78,6 @@ const resolvers = {
         authors,
         title,
         image,
-        isbn,
         description
       });
 

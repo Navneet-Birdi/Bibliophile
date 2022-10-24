@@ -48,7 +48,7 @@ if (loading) return <Loading/>;
   return (
     <section className='book-details'>
       <div className='container'>
-        <button type='button' class='arrow' onClick={() => navigate("/book")}>
+        <button type='button' className='arrow' onClick={() => navigate("/book")}>
           <FaArrowLeft size = {22} />
           <span className='back'> Go Back</span>
         </button>

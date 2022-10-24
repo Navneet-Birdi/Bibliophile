@@ -29,12 +29,12 @@ const Searchform = () => {
 //   </div>
 //   <div class="results"></div>
 // </div>
-<div class="ui fluid category search" onSubmit={handleSubmit}>
-  <div class="ui icon input">
-    <input class="prompt" type="text" placeholder="Search..." ref = {searchText} />
-    <button class="ui brown basic button" onClick={handleSubmit}> Search </button>
+<div className="ui fluid category search" onSubmit={handleSubmit}>
+  <div className="ui icon input">
+    <input className="prompt" type="text" placeholder="Search..." ref = {searchText} />
+    <button className="ui brown basic button" onClick={handleSubmit}> Search </button>
   </div>
-  <div class="results"></div>
+  <div className="results"></div>
 </div>
   )
 }

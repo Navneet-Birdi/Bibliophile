@@ -24,14 +24,14 @@ const Book = (book) => {
             <span className='author'>Author: </span>
             <span>{book.author?.join(",")}</span>
         </div>
-        <div className='book-item-info-item edcount'>
+        {/* <div className='book-item-info-item edcount'>
             <span className='author'>Total Editions: </span>
             <span>{book.edition_count}</span>
         </div>
         <div className='book-item-info-item pbyear'>
             <span className='author'>First Publish Year: </span>
             <span>{book.first_publish_year}</span>
-        </div>
+        </div> */}
     </div>
     {open && (
 

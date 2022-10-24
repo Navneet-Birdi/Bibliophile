@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import { useMutation } from '@apollo/client';
 import { ADD_BOOK } from '../../utils/mutations';
+import {Auth} from '../../utils/auth';
 
 function BookModal({
     open,
@@ -14,16 +15,18 @@ function BookModal({
     const [success, setSuccess] = useState(false)
 
 
-    const onBookSave =async () => {
-        const {data } = await saveBook({variables: {
+   const onBookSave =async () => {
+  const {data } = await saveBook({variables: {
             title: bookName,
-            image: coverImg,
-            description
-        }})
-        if (data.saveBookToUser) {
+             image: coverImg,
+             description
+         }})
+         if (data.saveBookToUser) {
             setSuccess(true)
-        }
+         }
     }
+
+   
   
 
   return (
